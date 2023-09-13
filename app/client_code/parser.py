@@ -93,19 +93,20 @@ class ScraperNike:
 
     async def format_item(self, product: dict) -> dict | None:
         details = product["details"]
-        category = f"{details['modality']} {' '.join(details['categories'])} {' '.join(details['genders'])}"
-        url = urljoin('https://www.nike.com.br/', product['url']).replace("'", "''")
-        afiliate_url = await get_afiliate_url(url)
         title = str(product['name']).replace("'", "''").strip()
-        image_url = f"https://imgnike-a.akamaihd.net/1080x1080/{product['id']}.jpg"
-        price = product['price']
-        previous_price = product['oldPrice']
-        discount = round((1 - (price / previous_price)) * 100)
+        category = f"{details['modality']} {' '.join(details['categories'])} {' '.join(details['genders'])}"
 
         if not re.search('tênis', title, re.IGNORECASE): return None
         if re.search('infantil', title, re.IGNORECASE): return None
         if re.search('infantil', category, re.IGNORECASE): return None
         if discount < 40: return None
+
+        afiliate_url = await get_afiliate_url(url)
+        url = urljoin('https://www.nike.com.br/', product['url']).replace("'", "''")
+        image_url = f"https://imgnike-a.akamaihd.net/1080x1080/{product['id']}.jpg"
+        price = product['price']
+        previous_price = product['oldPrice']
+        discount = round((1 - (price / previous_price)) * 100)
 
         item = Item(
             url=url,
