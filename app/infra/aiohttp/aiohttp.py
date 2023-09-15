@@ -2,6 +2,7 @@ from app.errors.unexpected_status_error import UnexpectedStatusError
 from app.infra.aiohttp.helpers import header
 from aiohttp_retry import RetryClient, RequestParams
 
+
 class AioHttpRetry:
   @staticmethod
   async def get_json(url: str) -> dict:

@@ -1,6 +1,6 @@
-from urllib.parse import quote
 import aiohttp
 from app.settings import LOMADEE_APP_TOKEN, LOMADEE_SOURCE_ID
+from urllib.parse import quote
 
 
 async def get_afiliate_url(url: str) -> str:
