@@ -1,10 +1,10 @@
 from typing import List
 import psycopg
-from app.settings import POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER
+from app.settings import POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER, TABLE_NAME
 
 
 def upsert_query(item: dict) -> str:
-    insert = f"INSERT INTO items("
+    insert = f"INSERT INTO {TABLE_NAME}("
     values = "VALUES("
     on_conflict = "ON CONFLICT (url)\nDO UPDATE SET "
     for key, value in item.items():
