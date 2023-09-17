@@ -44,6 +44,8 @@ class NikeParser:
           category=category,
           image_url=image_url,
           price=price,
+          free_shipping=False,
+          reviews=0,
           previous_price=previous_price,
           discount=discount
         )

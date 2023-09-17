@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
@@ -16,6 +15,9 @@ class Item(BaseModel):
   title: str
   category: str
   image_url: str
+  reviews: int
+  free_shipping: bool
   price: float
   previous_price: float
   discount: int
+  
