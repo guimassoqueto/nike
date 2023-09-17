@@ -11,3 +11,6 @@ env:
 
 a:
 	poetry run python main.py
+
+req:
+	poetry export -f requirements.txt --output requirements.txt

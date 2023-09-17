@@ -4,8 +4,10 @@ from app.settings import MAX_CONCURRENCY
 from app.app import application, get_urls
 from app.logging.logger import getLogger
 
+
 concurrency_limit = Semaphore(MAX_CONCURRENCY)
 logger = getLogger("main.py")
+
 
 async def main(concurrency_limit: Semaphore):
   logger.info("Gathering concurrent tasks...")
