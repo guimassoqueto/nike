@@ -19,3 +19,6 @@ NIKE_OFFERS_API = getenv("NIKE_OFFERS_API", "")
 # Lomadde
 LOMADEE_APP_TOKEN = getenv("LOMADEE_APP_TOKEN", "")
 LOMADEE_SOURCE_ID = getenv("LOMADEE_SOURCE_ID", "")
+
+# Scrapeops rotating proxy: https://scrapeops.io/app/proxy
+SCRAPEOPS_APY_KEY=getenv("SCRAPEOPS_APY_KEY", "")

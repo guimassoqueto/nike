@@ -1,4 +1,5 @@
 from fake_useragent import UserAgent
+from urllib.parse import quote
 
 
 def header() -> dict:
@@ -17,3 +18,7 @@ def header() -> dict:
     'Upgrade-Insecure-Requests':	'1',
     'User-Agent': UserAgent().random
   }
+
+
+def encode_url(url: str) -> str:
+  return quote(url)
