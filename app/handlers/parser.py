@@ -31,7 +31,7 @@ class NikeParser:
         price = product['price']
         previous_price = product['oldPrice']
         discount = round((1 - (price / previous_price)) * 100)
-        if discount < 40: continue
+        if discount < 20: continue
 
         url = urljoin('https://www.nike.com.br/', product['url']).replace("'", "''")
         afiliate_url = await get_afiliate_url(url)
