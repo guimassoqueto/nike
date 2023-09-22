@@ -22,6 +22,6 @@ async def get_urls() -> list:
 
 async def application(url: str, concurrency_limit: Semaphore) -> None:
   async with concurrency_limit:
-    data = await AioHttpProxy.get_json(url)
+    data = await AioHttpRetry.get_json(url)
     products = await NikeParser.get_products(data)
     await insert_products(products)
